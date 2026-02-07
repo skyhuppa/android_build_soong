@@ -215,7 +215,7 @@ func GetCommand(configs *rc_lib.ReleaseConfigs, commonFlags Flags, cmd string, a
 				// trunk_staging       ""
 				// trunk               ""
 				//
-				// ap1a                ""
+				// bp1a                ""
 				// ...
 				switch {
 				case config.Name == "trunk_staging":
