@@ -375,7 +375,7 @@ func createPrebuiltEtcModulesInDirectory(ctx android.LoadHookContext, partition,
 			})
 		}
 
-		ctx.CreateModuleInDirectory(moduleFactory, srcDir, propsList...)
+	//	ctx.CreateModuleInDirectory(moduleFactory, srcDir, propsList...)
 		moduleNames = append(moduleNames, moduleName)
 	}
 
