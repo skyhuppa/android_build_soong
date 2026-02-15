@@ -299,7 +299,7 @@ func createPrebuiltEtcModulesInDirectory(ctx android.LoadHookContext, partition,
 			etcInstallPathKey = etcInstallPath
 		}
 	}
-	moduleFactory := etcInstallPathToFactoryList[etcInstallPathKey]
+	// moduleFactory := etcInstallPathToFactoryList[etcInstallPathKey]
 	relDestDirFromInstallDirBase, _ := filepath.Rel(etcInstallPathKey, destDir)
 
 	for fileIndex := range maxLen {
@@ -348,11 +348,12 @@ func createPrebuiltEtcModulesInDirectory(ctx android.LoadHookContext, partition,
 		// of the root.
 		// Use prebuilt_any instead of prebuilt_root if either of the conditions are not met as
 		// a fallback behavior.
-		if etcInstallPathKey == "" {
-			if !(allCopyFileNamesUnchanged && android.InList(relDestDirFromInstallDirBase, []string{"", "."})) {
-				moduleFactory = etc.PrebuiltAnyFactory
-			}
-		}
+		
+		// if etcInstallPathKey == "" {
+		//	if !(allCopyFileNamesUnchanged && android.InList(relDestDirFromInstallDirBase, []string{"", "."})) {
+		//		moduleFactory = etc.PrebuiltAnyFactory
+		//	}
+		// }
 
 		if allCopyFileNamesUnchanged {
 			// Specify relative_install_path if it is not installed in the root directory of the
