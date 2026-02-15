@@ -85,7 +85,7 @@ func RegisterPrebuiltEtcBuildComponents(ctx android.RegistrationContext) {
 	ctx.RegisterModuleType("prebuilt_sbin", PrebuiltSbinFactory)
 	ctx.RegisterModuleType("prebuilt_system", PrebuiltSystemFactory)
 	ctx.RegisterModuleType("prebuilt_first_stage_ramdisk", PrebuiltFirstStageRamdiskFactory)
-	ctx.RegisterModuleType("prebuilt_any", PrebuiltAnyFactory)
+	// ctx.RegisterModuleType("prebuilt_any", PrebuiltAnyFactory)
 
 	ctx.RegisterModuleType("prebuilt_defaults", defaultsFactory)
 
@@ -650,14 +650,14 @@ func PrebuiltEtcHostFactory() android.Module {
 // modules, and should never be defined in the bp files. If none of the existing prebuilt_*
 // modules allow installing the file at the desired location, introduce a new prebuilt_* module
 // type instead.
-func PrebuiltAnyFactory() android.Module {
-	module := &PrebuiltEtc{}
-	InitPrebuiltEtcModule(module, ".")
+// func PrebuiltAnyFactory() android.Module {
+//	module := &PrebuiltEtc{}
+//	InitPrebuiltEtcModule(module, ".")
 	// This module is device-only
-	android.InitAndroidArchModule(module, android.DeviceSupported, android.MultilibCommon)
-	android.InitDefaultableModule(module)
-	return module
-}
+//	android.InitAndroidArchModule(module, android.DeviceSupported, android.MultilibCommon)
+//	android.InitDefaultableModule(module)
+//	return module
+// }
 
 // prebuilt_etc_host is for a host prebuilt artifact that is installed in
 // <partition>/etc/<sub_dir> directory.
